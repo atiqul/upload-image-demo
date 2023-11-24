@@ -67,7 +67,7 @@ export default function Home(): React.JSX.Element {
                 onUploadImage={handleUploadImage}
                 onClose={() => setImageFile(undefined)}
               />
-              <Progress percent={uploadProgress} />
+              {uploadProgress > 0 && <Progress percent={uploadProgress} />}
             </>
           ) : (
             <div className="flex align-middle content-center justify-center">

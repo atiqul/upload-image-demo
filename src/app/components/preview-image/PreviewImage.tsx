@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import { CloseCircleOutlined } from "@ant-design/icons";
 import { Image, Button } from "antd";
 import { PropertyGroups, RoomType } from "..";
-import { UploadImageParam } from "@/app/types";
+import { PreviewImageProps } from "./PreviewImage.types";
 
-type Props = {
-  image: File;
-  onUploadImage: (uploadParam: UploadImageParam) => void;
-  onClose: () => void;
-};
-
-export default function PreviewImage(props: Props): React.JSX.Element {
+export default function PreviewImage(
+  props: PreviewImageProps
+): React.JSX.Element {
   const { onUploadImage, image: imageFile, onClose } = props;
   const [propertyTypeGroup, setPropertyTypeGroup] = useState<string[]>([]);
   const [roomType, setRoomType] = useState<string>("");
@@ -28,9 +24,13 @@ export default function PreviewImage(props: Props): React.JSX.Element {
         />
         <Image src={URL.createObjectURL(imageFile)} height={400} />
       </div>
-      <div className="">
-        <PropertyGroups onSelect={setPropertyTypeGroup} />
-        <RoomType onSelect={setRoomType} />
+      <div className="flex justify-between my-4">
+        <div className="flex-auto mr-1">
+          <PropertyGroups onSelect={setPropertyTypeGroup} />
+        </div>
+        <div className="flex-auto ml-1">
+          <RoomType onSelect={setRoomType} />
+        </div>
       </div>
       <Button className="bg-blue-500" type="primary" onClick={handleOnClick}>
         Upload

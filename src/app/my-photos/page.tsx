@@ -73,19 +73,16 @@ const MyPhotos = (): React.JSX.Element => {
   }, []);
 
   return (
-    <div className="lg:container lg:mx-auto px-4 border-2 border-gray-500 h-full">
+    <div className="lg:container lg:mx-auto px-4 border-2 h-full shadow-md">
       {loading && (
         <>
           <Spin
             size="large"
             spinning={true}
-            className="flex items-center justify-center fixed w-full h-full z-10 bg-black bg-opacity-50"
+            className="flex items-center justify-center fixed h-full w-full z-10 bg-black bg-opacity-50 left-0"
           ></Spin>
-          <div
-            className="flex items-center justify-center fixed w-full h-full z-10 pt-20"
-            style={{ color: "#1677ff" }}
-          >
-            Loading
+          <div className="flex items-center justify-center fixed w-full h-full z-10 pt-20 left-0 text-blue-200">
+            Loading...
           </div>
         </>
       )}
@@ -115,10 +112,10 @@ const MyPhotos = (): React.JSX.Element => {
               })}
             </Radio.Group>
           </div>
-          <div className="flex flex-auto justify-start flex-wrap">
+          <div className="flex flex-auto justify-start flex-wrap ml-3">
             {photoData.map((data) => (
               <div
-                className="flex-none ml-3 sm:w-full md:w-72 lg:w-80"
+                className="flex-none m-1 sm:w-full md:w-72 lg:w-80 border-2 shadow-md object-fill"
                 key={data.id}
               >
                 <Image src={data.imageUrl} />
