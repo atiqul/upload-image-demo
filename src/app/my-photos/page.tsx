@@ -112,7 +112,7 @@ const MyPhotos = (): React.JSX.Element => {
               })}
             </Radio.Group>
           </div>
-          <div className="flex flex-auto justify-start flex-wrap ml-3">
+          <div className="flex justify-start flex-wrap ml-3">
             {photoData.map((data) => (
               <div
                 className="flex-none m-1 sm:w-full md:w-72 lg:w-80 border-2 shadow-md object-fill"
